@@ -97,7 +97,17 @@ public class PlayerMovement : MonoBehaviour
 
             // Actualiza el texto de puntajes en el panel de Game Over
             gameOverPanel.transform.Find("ScoreText").GetComponent<TextMeshProUGUI>().text = "Score: " + playerC.score;
+        }
+        if (collision.CompareTag("diamante")) // de crater
+        {
+            playerC.score = playerC.score + 5;
+            ScoreText.text = "Score: " + playerC.score;
+            //LifeText.text = "Life: " + GameManager.characters[index].life;
 
+            collision.gameObject.SetActive(false);
+
+            // Actualiza el texto de puntajes en el panel de Game Over
+            gameOverPanel.transform.Find("ScoreText").GetComponent<TextMeshProUGUI>().text = "Score: " + playerC.score;
 
         }
 
