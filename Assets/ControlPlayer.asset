@@ -17,4 +17,4 @@ MonoBehaviour:
   name: 
   life: 3
   PlayerVelocity: 0
-  score: 0
+  score: 7

@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] PlayerController playerC;
     public TMP_Text LifeText;
 
+    public TMP_Text ScoreText;
+
     void Start()
     {
 
@@ -19,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
         // rb = GetComponent<Rigidbody2D>(); //***************
 
         playerC.life = 3;
+        playerC.score = 0;
         Time.timeScale = 1f; // Reanudar el juego
     }
 
@@ -41,5 +44,26 @@ public class PlayerMovement : MonoBehaviour
 
             }
         }
+    }
+
+    // COLISIONES :)
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log(playerC.score);
+   
+        if (collision.CompareTag("coin")) // de crater
+        {
+            playerC.score++;
+            ScoreText.text = "Score: " + playerC.score;
+            //LifeText.text = "Life: " + GameManager.characters[index].life;
+
+            collision.gameObject.SetActive(false);
+
+            // Actualiza el texto de puntajes en el panel de Game Over
+            //gameOverPanel.transform.Find("ScoreGameOver").GetComponent<TextMeshProUGUI>().text = "Score: " + playerC.score;
+
+
+        }
+
     }
 }
