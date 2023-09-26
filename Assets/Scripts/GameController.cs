@@ -9,16 +9,8 @@ public class GameController : MonoBehaviour
     private float tiempoEntrePuntos = 1.0f;
     public TMP_Text scoreText;
 
-    //private GameManager GameManager; //********
-
-   // int index;
-
     void Start()
     {
-        //GameManager.characters[index].score = 0;
-
-       // GameManager = GameManager.Instance;
-       // index = PlayerPrefs.GetInt("JugadorIndex");
 
         InvokeRepeating("AddScore", tiempoEntrePuntos, tiempoEntrePuntos);
 
@@ -38,7 +30,6 @@ public class GameController : MonoBehaviour
         player.score++;
         //GameManager.characters[index].score++;
         scoreText.text = "Score : " + player.score;
-        //scoreText.text = "Score : " + GameManager.characters[index].score;
     }
 
   
